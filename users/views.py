@@ -22,7 +22,7 @@ def follow_toggle(request, id):
 def mypage(request, id):
     mypage_user = get_object_or_404(User, pk=id)
     context = {
-        'posts' : Post.objects.filter(user=request.user),
+        'posts' : Post.objects.filter(user=mypage_user),
         'followings' : mypage_user.profile.followings.all(),
         'followers' : mypage_user.profile.followers.all(),
     }

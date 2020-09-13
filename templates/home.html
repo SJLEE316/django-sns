@@ -11,7 +11,7 @@
                 <div class="card mb-5 sns-card">
                     <div class="row pt-2 pr-2 pl-2 pb-2">
                         <div class="col">
-                            <span>{{ post.user.username }}</span>
+                            <a href="{% url 'users:mypage' post.user.id %}">{{ post.user.username }}</a>
 
                             <span class="float-right">
                                 {% if user == post.user %}
