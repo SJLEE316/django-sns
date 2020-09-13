@@ -9,3 +9,4 @@ def home(request):
         'comments': Comment.objects.all()
     }
     return render(request, 'home.html', context)
+

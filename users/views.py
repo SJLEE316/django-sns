@@ -16,6 +16,9 @@ def follow_toggle(request, id):
     else:
         profile.followings.add(followed_user.profile)
 
-    return redirect('home')    
+    return redirect('home')   
+
+def mypage(request):
+    return render(request, 'users/mypage.html')
 
 # Create your views here.
