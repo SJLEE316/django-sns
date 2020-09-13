@@ -14,4 +14,5 @@ urlpatterns = [
     #likes
     path('<int:post_id>/post_like/', post_like, name="post_like"),
     path('like_list/', like_list, name="like_list"),
+    path('mypage/', mypage, name="mypage"),
 ]
