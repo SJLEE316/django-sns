@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>나를 팔로우 하는 사람</h1>
+
+{% for follower in followers %}
+    <p>{{ follower.user.username}}</p>
+{% endfor %}
+
+<h1>내가 팔로우 하는 사람</h1>
+
+{% for following in followings %}
+    <p>{{ following.user.username}}</p>
+{% endfor%}
+
+{% endblock %}

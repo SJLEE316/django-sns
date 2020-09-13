@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import User
+from posts.models import Post
 
 @login_required
 def follow_toggle(request, id):
@@ -18,7 +19,13 @@ def follow_toggle(request, id):
 
     return redirect('home')   
 
-def mypage(request):
-    return render(request, 'users/mypage.html')
+def mypage(request, id):
+    mypage_user = get_object_or_404(User, pk=id)
+    context = {
+        'posts' : Post.objects.filter(user=request.user),
+        'followings' : mypage_user.profile.followings.all(),
+        'followers' : mypage_user.profile.followers.all(),
+    }
+    return render(request, 'users/mypage.html', context)
 
 # Create your views here.
